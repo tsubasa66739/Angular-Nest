@@ -5,7 +5,7 @@
 First, checkout this repository.
 
 ```bash
-git glone xxxx
+git clone xxxx
 cd angular-nest
 ```
 
@@ -18,7 +18,7 @@ Follow commands on below to start development server.
 ```bash
 cd client
 npm i
-ng s
+npm run start
 ```
 
 And open your browser on `http://localhost:4200/`.
@@ -27,4 +27,12 @@ And open your browser on `http://localhost:4200/`.
 
 The client application is based on [NestJS](https://nestjs.com/).
 
+WIP
+
+```
+npm run start:dev
+```
+
 # Deployment
+
+WIP
