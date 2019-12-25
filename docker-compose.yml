@@ -2,11 +2,35 @@ version: "3"
 
 services:
   api:
-    build: ./api
-    command: npm run start:debug
+    build: 
+      context: ./api
+    command: npm run start:dev
     volumes:
       - ./api:/api
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PW=postgres
+      - DB_NAME=app
+    links:
+      - db:angular-nest_db
+    depends_on: 
+      - db
     ports:
       - 3000:3000
-      - 9229:9229
     tty: true
+
+  db:
+    image: postgres:12.1-alpine
+    container_name: angular-nest_db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_INITDB_ARGS="--encoding=UTF-8"
+    restart: always
+    user: postgres

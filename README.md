@@ -25,12 +25,25 @@ And open your browser on `http://localhost:4200/`.
 
 ## Debug API
 
-The client application is based on [NestJS](https://nestjs.com/).
+The API is based on [NestJS](https://nestjs.com/).
 
 WIP
 
-```
+```bash
 npm run start:dev
+```
+
+### Docker
+
+You can also run in Docker.
+First, build an image.
+
+```bash
+docker-compose build
+```
+
+```bash
+docker-compose up
 ```
 
 # Deployment
