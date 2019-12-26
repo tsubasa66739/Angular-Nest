@@ -1,4 +1,10 @@
-export interface BlogRequestDto {
+import { ApiProperty } from '@nestjs/swagger';
+
+export class BlogRequestDto {
+
+  @ApiProperty()
   title: string;
-  body: string;
+
+  @ApiProperty()
+  body?: string;
 }
