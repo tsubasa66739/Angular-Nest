@@ -1,20 +1,14 @@
-import { Module, Logger } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BlogModule } from './blog/blog.module';
+import { typeOrmConfig } from './custom-type-orm/type-orm.config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT, 10),
-      username: process.env.DB_USER,
-      password: process.env.DB_PW,
-      database: process.env.DB_NAME,
-      entities: [],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(typeOrmConfig),
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [AppService],
