@@ -11,8 +11,14 @@ export class BlogService {
     private readonly blogRepository: Repository<Blog>,
   ) { }
 
-  create(title: string, body: string): Blog {
-    return null;
+  async create(title: string, body: string): Promise<Blog> {
+    const reqBlog = new Blog(title, body);
+    const newBlog = this.blogRepository.create(reqBlog);
+    return this.blogRepository.save(newBlog);
+  }
+
+  async findAll(): Promise<Blog[]> {
+    return this.blogRepository.find();
   }
 
 }

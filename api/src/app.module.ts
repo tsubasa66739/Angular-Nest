@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BlogModule } from './blog/blog.module';
-import { typeOrmConfig } from './custom-type-orm/type-orm.config';
+import { BlogModule } from './domain/blog/blog.module';
+import { typeOrmConfig } from './core/custom-type-orm/type-orm.config';
 
 @Module({
   imports: [

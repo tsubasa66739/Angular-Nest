@@ -1,5 +1,5 @@
 import { CustomNamingStrategy } from './custom-naming.strategy';
-import { Blog } from 'src/blog/blog.entity';
+import { Blog } from 'src/domain/blog/blog.entity';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {

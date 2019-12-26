@@ -8,6 +8,9 @@ import { BlogController } from './blog.controller';
   imports: [
     TypeOrmModule.forFeature([Blog]),
   ],
+  exports: [
+    TypeOrmModule,
+  ],
   providers: [BlogService],
   controllers: [BlogController],
 })
