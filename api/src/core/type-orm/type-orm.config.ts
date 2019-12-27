@@ -3,7 +3,7 @@ import { Blog } from 'src/domain/blog/blog.entity';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
-  type: 'postgres',
+  type: process.env.DB_TYPE as any,
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT, 10),
   username: process.env.DB_USER,

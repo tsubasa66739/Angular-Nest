@@ -8,6 +8,7 @@ services:
     volumes:
       - ./api:/api
     environment:
+      - DB_TYPE=postgres
       - DB_HOST=db
       - DB_PORT=5432
       - DB_USER=postgres

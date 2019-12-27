@@ -7,18 +7,18 @@ import { Repository } from 'typeorm';
 export class BlogService {
 
   constructor(
-    @InjectRepository(Blog)
-    private readonly blogRepository: Repository<Blog>,
-  ) { }
+  ) {}
 
   async create(title: string, body: string): Promise<Blog> {
     const reqBlog = new Blog(title, body);
-    const newBlog = this.blogRepository.create(reqBlog);
-    return this.blogRepository.save(newBlog);
+    // const newBlog = this.blogRepository.create(reqBlog);
+    // return this.blogRepository.save(newBlog);
+    return reqBlog.save();
   }
 
   async findAll(): Promise<Blog[]> {
-    return this.blogRepository.find();
+    // return this.blogRepository.find();
+    return Blog.find();
   }
 
 }

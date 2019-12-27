@@ -1,8 +1,17 @@
-import { BaseEntity } from '../../core/entity/base.entity';
-import { Column, Entity } from 'typeorm';
+import {
+  Column,
+  Entity,
+  CreateDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  BaseEntity,
+} from 'typeorm';
 
 @Entity()
 export class Blog extends BaseEntity {
+
+  @PrimaryGeneratedColumn()
+  readonly id?: number;
 
   @Column({length: 100})
   title: string;
@@ -18,6 +27,12 @@ export class Blog extends BaseEntity {
 
   @Column({default: null})
   publishedAt?: Date;
+
+  @UpdateDateColumn()
+  readonly updatedAt?: Date;
+
+  @CreateDateColumn()
+  readonly createdAt?: Date;
 
   constructor(title: string, body: string) {
     super();
