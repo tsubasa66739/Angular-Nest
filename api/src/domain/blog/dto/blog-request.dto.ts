@@ -2,9 +2,14 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class BlogRequestDto {
 
-  @ApiProperty()
+  @ApiProperty({
+    description: 'The title of a blog.',
+  })
   title: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    description: 'The body of a blog.',
+    required: false,
+  })
   body?: string;
 }
